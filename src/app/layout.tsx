@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import DataUsageIcon from "@mui/icons-material/DataUsage";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -20,7 +21,7 @@ import {
   createTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
 
 export const palette = {
@@ -78,24 +79,32 @@ const theme = createTheme({
   },
 });
 
-interface Props {
-  window?: () => Window;
-  children: ReactNode;
-}
-
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
-export default function RootLayout(props: Props) {
-  const { window } = props;
+export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    window !== undefined ? () => window.document.body : undefined;
+
+  useEffect(() => {
+    const handleMouseMove = (event: any) => {
+      setMousePos({ x: window.scrollX + event.clientX, y: window.scrollY + event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+    console.log('fergre')
+  }, []);
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -173,8 +182,17 @@ export default function RootLayout(props: Props) {
                 component="main"
                 sx={{ backgroundColor: palette.light.black }}
               >
+                <DataUsageIcon
+                  color="primary"
+                  fontSize="large"
+                  sx={{
+                    position: "absolute",
+                    left: `${mousePos.x}px`,
+                    top: `${mousePos.y}px`,
+                  }}
+                />
                 <Toolbar />
-                {props.children}
+                {children}
               </Box>
             </Box>
           </ThemeProvider>

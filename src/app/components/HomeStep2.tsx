@@ -1,13 +1,14 @@
 "use client";
 
 import WebIcon from "@mui/icons-material/Web";
-import CategoryIcon from '@mui/icons-material/Category';
-import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
-import { CSSProperties } from "react";
+import CategoryIcon from "@mui/icons-material/Category";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
+import { CSSProperties, useEffect, useState } from "react";
 import { palette } from "@/app/layout";
 import {
   Box,
   CardActionArea,
+  Grow,
   Stack,
   SxProps,
   Typography,
@@ -57,45 +58,63 @@ export default function HomeStep2(): JSX.Element {
     color: "white",
   });
 
+  const [skill1Display, setSkill1Display] = useState(false);
+  const [skill2Display, setSkill2Display] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (skill1Display === false)
+        setSkill1Display(true);
+      if (skill1Display === true)
+        setSkill2Display(true);
+    }, 150);
+  })
+
   return (
     <Box sx={mainBoxStyle}>
       <Stack direction="row" sx={{ height: "95%", width: "95%" }} spacing={2}>
-        <CardActionArea sx={hookBoxStyle}>
-          <Typography color="white" sx={{ fontSize: 70, fontWeight: 600 }}>
-            Explorez ma forge numérique polyvalente.
-          </Typography>
-          <Stack
-            direction="row"
-            mt="20"
-            spacing={2}
-            sx={{ alignItems: "center", justifyContent: "center" }}
-          >
-            {arrowDropDownCircleIcons}
-          </Stack>
-        </CardActionArea>
+        <Grow in={true}>
+          <CardActionArea sx={hookBoxStyle}>
+            <Typography color="white" sx={{ fontSize: 70, fontWeight: 600 }}>
+              Explorez ma forge numérique polyvalente.
+            </Typography>
+            <Stack
+              direction="row"
+              mt="20"
+              spacing={2}
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              {arrowDropDownCircleIcons}
+            </Stack>
+          </CardActionArea>
+        </Grow>
         <Stack sx={{ width: "50%", height: "60%" }} spacing={2}>
-          <CardActionArea sx={SkillBoxStyle}>
-            <Stack direction="row" spacing={10}>
-              <CategoryIcon style={{ width: 80, height: 80 }} />
-              <Typography
-                color={palette.light.black}
-                sx={{ fontSize: 40, fontWeight: 600 }}
-              >
-                Software Development
-              </Typography>
-            </Stack>
-          </CardActionArea>
-          <CardActionArea sx={SkillBoxStyle}>
-            <Stack direction="row" spacing={10}>
-              <WebIcon style={{ width: 80, height: 80 }} />
-              <Typography
-                color={palette.light.black}
-                sx={{ fontSize: 40, fontWeight: 600 }}
-              >
-                Web Development
-              </Typography>
-            </Stack>
-          </CardActionArea>
+          <Grow in={skill1Display}>
+            <CardActionArea sx={SkillBoxStyle}>
+              <Stack direction="row" spacing={10}>
+                <CategoryIcon style={{ width: 80, height: 80 }} />
+                <Typography
+                  color={palette.light.black}
+                  sx={{ fontSize: 40, fontWeight: 600 }}
+                >
+                  Software Development
+                </Typography>
+              </Stack>
+            </CardActionArea>
+          </Grow>
+          <Grow in={skill2Display}>
+            <CardActionArea sx={SkillBoxStyle}>
+              <Stack direction="row" spacing={10}>
+                <WebIcon style={{ width: 80, height: 80 }} />
+                <Typography
+                  color={palette.light.black}
+                  sx={{ fontSize: 40, fontWeight: 600 }}
+                >
+                  Web Development
+                </Typography>
+              </Stack>
+            </CardActionArea>
+          </Grow>
         </Stack>
       </Stack>
     </Box>
