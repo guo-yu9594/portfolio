@@ -16,6 +16,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Stack,
   createTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -45,6 +46,9 @@ export const palette = {
 const theme = createTheme({
   typography: {
     fontFamily: "Inter, sans-serif",
+    button: {
+      textTransform: "none",
+    },
   },
   palette: {
     primary: {
@@ -118,8 +122,11 @@ export default function RootLayout(props: Props) {
           <ThemeProvider theme={theme}>
             <Box sx={{ display: "flex" }}>
               <CssBaseline />
-              <AppBar component="nav">
-                <Toolbar>
+              <AppBar
+                component="nav"
+                sx={{ bgcolor: "transparent", backdropFilter: "blur(10px)" }}
+              >
+                <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
                   <IconButton
                     color="inherit"
                     aria-label="open drawer"
@@ -129,13 +136,17 @@ export default function RootLayout(props: Props) {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                  <Stack
+                    direction="row"
+                    spacing={8}
+                    sx={{ display: { xs: "none", sm: "block" } }}
+                  >
                     {navItems.map((item) => (
                       <Button key={item} sx={{ color: "#fff" }}>
-                        {item}
+                        {"//           " + item.toLowerCase()}
                       </Button>
                     ))}
-                  </Box>
+                  </Stack>
                 </Toolbar>
               </AppBar>
               <nav>
