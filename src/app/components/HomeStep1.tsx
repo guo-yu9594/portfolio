@@ -1,6 +1,6 @@
 "use client";
 
-import { Collapse, Stack, Typography } from "@mui/material";
+import { Collapse, Fade, LinearProgress, Stack, Typography } from "@mui/material";
 import { palette } from "@/app/layout";
 import { useEffect, useState } from "react";
 
@@ -19,7 +19,6 @@ export default function HomeStep1(): JSX.Element {
         setSubtitleDisplay(true);
       }, 300);
     }
-    console.log("grege");
   });
 
   return (
@@ -48,6 +47,14 @@ export default function HomeStep1(): JSX.Element {
           Freelance software engineer
         </Typography>
       </Collapse>
+      <LinearProgress
+        sx={{
+          position: "absolute",
+          bottom: "50%",
+          width: "100%",
+          filter: `drop-shadow(0px 0px 20px ${palette.light.primary})`,
+        }}
+      />
     </Stack>
   );
 }

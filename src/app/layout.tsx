@@ -84,7 +84,10 @@ const navItems = ["Home", "About", "Contact"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 960, y: 590 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  let animationRequestId = 0;
+  let oldTimeStamp = 0;
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -93,17 +96,61 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const container =
     window !== undefined ? () => window.document.body : undefined;
 
+  const updateCursorPos = (movingSpeed: number, secondsPassed: number) => {
+    const distance = movingSpeed * secondsPassed;
+    const targetPos = {
+      x: mousePos.x + window.scrollX,
+      y: mousePos.y + window.scrollY,
+    };
+    let cursorNextPos = { ...cursorPos };
+
+    if (cursorPos.x < targetPos.x)
+      cursorNextPos = {
+        x: Math.round(Math.min(cursorPos.x + distance, targetPos.x)),
+        y: cursorPos.y,
+      };
+    else if (cursorPos.x > targetPos.x)
+      cursorNextPos = {
+        x: Math.round(Math.max(cursorPos.x - distance, targetPos.x)),
+        y: cursorPos.y,
+      };
+    if (cursorPos.y < targetPos.y)
+      cursorNextPos = {
+        x: cursorNextPos.x,
+        y: Math.round(Math.min(cursorPos.y + distance, targetPos.y)),
+      };
+    else if (cursorPos.y > targetPos.y)
+      cursorNextPos = {
+        x: cursorNextPos.x,
+        y: Math.round(Math.max(cursorPos.y - distance, targetPos.y)),
+      };
+    if (cursorNextPos.x != cursorPos.x || cursorNextPos.y != cursorPos.y)
+      setCursorPos(cursorNextPos);
+  };
+
+  const animationLoop: FrameRequestCallback = (
+    timeStamp: DOMHighResTimeStamp
+  ) => {
+    const secondsPassed = (timeStamp - oldTimeStamp) / 1000;
+
+    updateCursorPos(1, secondsPassed);
+    oldTimeStamp = timeStamp;
+    animationRequestId = window.requestAnimationFrame(animationLoop);
+  };
+  animationRequestId = window.requestAnimationFrame(animationLoop);
+
   useEffect(() => {
+    console.log("useEffect");
     const handleMouseMove = (event: any) => {
-      setMousePos({ x: window.scrollX + event.clientX, y: window.scrollY + event.clientY });
+      setMousePos({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.cancelAnimationFrame(animationRequestId);
     };
-    console.log('fergre')
   }, []);
 
   const drawer = (
@@ -187,8 +234,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   fontSize="large"
                   sx={{
                     position: "absolute",
-                    left: `${mousePos.x}px`,
-                    top: `${mousePos.y}px`,
+                    left: `${cursorPos.x - 20}px `,
+                    top: `${cursorPos.y - 18}px`,
+                    filter: `drop-shadow(0px 0px 20px white)`
                   }}
                 />
                 <Toolbar />
