@@ -1,4 +1,4 @@
-Deployed web app : `https://portfolio-6sfg8g8kn-guo-yu9594.vercel.app/``
+Deployed web app : https://portfolio-6sfg8g8kn-guo-yu9594.vercel.app/
 
 Install dependencies and run:
 
