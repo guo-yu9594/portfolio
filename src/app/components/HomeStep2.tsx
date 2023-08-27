@@ -16,7 +16,7 @@ import {
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
-  height: "100vh",
+  height: "60vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -25,7 +25,7 @@ const mainBoxStyle: SxProps = {
 const hookBoxStyle: SxProps = {
   bgcolor: palette.light.primary,
   width: "50%",
-  height: "60%",
+  height: "100%",
   borderRadius: 25,
   p: 7,
   cursor: "pointer",
@@ -88,7 +88,7 @@ export default function HomeStep2(): JSX.Element {
             </Stack>
           </CardActionArea>
         </Grow>
-        <Stack sx={{ width: "50%", height: "60%" }} spacing={2}>
+        <Stack sx={{ width: "50%", height: "100%" }} spacing={2}>
           <Grow in={skill1Display}>
             <CardActionArea sx={SkillBoxStyle}>
               <Stack direction="row" spacing={10}>

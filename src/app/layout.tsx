@@ -30,7 +30,8 @@ export const palette = {
     primaryDarken: "#622ad1",
     secondary: "#C3BEF7",
     secondaryDarken: "#8f89cc",
-    black: "#0D1821",
+    darkGrey: "#0D1821",
+    black: "black",
     yellow: "#E6E49F",
     orange: "#E2856E",
   },
@@ -38,7 +39,8 @@ export const palette = {
     primary: "#8A4FFF",
     secondary: "#C3BEF7",
     hoverPrimary: "#1f1eb0",
-    black: "#0D1821",
+    darkGrey: "#0D1821",
+    black: "black",
     yellow: "#E6E49F",
     orange: "#E2856E",
   },
@@ -93,8 +95,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const container =
-    window !== undefined ? () => window.document.body : undefined;
+  // const container =
+  //   window !== undefined ? () => window.document.body : undefined;
 
   const updateCursorPos = (movingSpeed: number, secondsPassed: number) => {
     const distance = movingSpeed * secondsPassed;
@@ -137,10 +139,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     oldTimeStamp = timeStamp;
     animationRequestId = window.requestAnimationFrame(animationLoop);
   };
-  animationRequestId = window.requestAnimationFrame(animationLoop);
+  animationRequestId = window!.requestAnimationFrame(animationLoop);
 
   useEffect(() => {
-    console.log("useEffect");
     const handleMouseMove = (event: any) => {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
@@ -207,7 +208,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </AppBar>
               <nav>
                 <Drawer
-                  container={container}
+                  container={window.document.body}
                   variant="temporary"
                   open={mobileOpen}
                   onClose={handleDrawerToggle}
