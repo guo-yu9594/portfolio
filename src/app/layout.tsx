@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import DataUsageIcon from "@mui/icons-material/DataUsage";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -26,23 +25,12 @@ import { ThemeProvider } from "@emotion/react";
 
 export const palette = {
   light: {
-    primary: "#8A4FFF",
-    primaryDarken: "#622ad1",
+    primary: "#D0FF94",
+    primaryDarken: "#b3e079",
     secondary: "#C3BEF7",
     secondaryDarken: "#8f89cc",
-    darkGrey: "#0D1821",
+    darkGrey: "#11140d",
     black: "black",
-    yellow: "#E6E49F",
-    orange: "#E2856E",
-  },
-  dark: {
-    primary: "#8A4FFF",
-    secondary: "#C3BEF7",
-    hoverPrimary: "#1f1eb0",
-    darkGrey: "#0D1821",
-    black: "black",
-    yellow: "#E6E49F",
-    orange: "#E2856E",
   },
 };
 
@@ -58,7 +46,7 @@ const theme = createTheme({
       main: palette.light.primary,
       light: palette.light.primary,
       dark: palette.light.primaryDarken,
-      contrastText: "white",
+      contrastText: "black",
     },
     secondary: {
       main: palette.light.secondary,
@@ -86,73 +74,10 @@ const navItems = ["Home", "About", "Contact"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [cursorPos, setCursorPos] = useState({ x: 960, y: 590 });
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  let animationRequestId = 0;
-  let oldTimeStamp = 0;
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
-  // const container =
-  //   window !== undefined ? () => window.document.body : undefined;
-
-  const updateCursorPos = (movingSpeed: number, secondsPassed: number) => {
-    const distance = movingSpeed * secondsPassed;
-    const targetPos = {
-      x: mousePos.x + window.scrollX,
-      y: mousePos.y + window.scrollY,
-    };
-    let cursorNextPos = { ...cursorPos };
-
-    if (cursorPos.x < targetPos.x)
-      cursorNextPos = {
-        x: Math.round(Math.min(cursorPos.x + distance, targetPos.x)),
-        y: cursorPos.y,
-      };
-    else if (cursorPos.x > targetPos.x)
-      cursorNextPos = {
-        x: Math.round(Math.max(cursorPos.x - distance, targetPos.x)),
-        y: cursorPos.y,
-      };
-    if (cursorPos.y < targetPos.y)
-      cursorNextPos = {
-        x: cursorNextPos.x,
-        y: Math.round(Math.min(cursorPos.y + distance, targetPos.y)),
-      };
-    else if (cursorPos.y > targetPos.y)
-      cursorNextPos = {
-        x: cursorNextPos.x,
-        y: Math.round(Math.max(cursorPos.y - distance, targetPos.y)),
-      };
-    if (cursorNextPos.x != cursorPos.x || cursorNextPos.y != cursorPos.y)
-      setCursorPos(cursorNextPos);
-  };
-
-  const animationLoop: FrameRequestCallback = (
-    timeStamp: DOMHighResTimeStamp
-  ) => {
-    const secondsPassed = (timeStamp - oldTimeStamp) / 1000;
-
-    updateCursorPos(1, secondsPassed);
-    oldTimeStamp = timeStamp;
-    animationRequestId = window.requestAnimationFrame(animationLoop);
-  };
-  animationRequestId = window!.requestAnimationFrame(animationLoop);
-
-  useEffect(() => {
-    const handleMouseMove = (event: any) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.cancelAnimationFrame(animationRequestId);
-    };
-  }, []);
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -230,16 +155,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 component="main"
                 sx={{ backgroundColor: palette.light.black }}
               >
-                <DataUsageIcon
-                  color="primary"
-                  fontSize="large"
-                  sx={{
-                    position: "absolute",
-                    left: `${cursorPos.x - 20}px `,
-                    top: `${cursorPos.y - 18}px`,
-                    filter: `drop-shadow(0px 0px 20px white)`
-                  }}
-                />
                 <Toolbar />
                 {children}
               </Box>

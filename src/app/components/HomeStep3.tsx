@@ -42,10 +42,9 @@ export default function HomeStep3(): JSX.Element {
   return (
     <Box sx={mainBoxStyle}>
       <Swiper
+        style={{ width: '100%' }}
         spaceBetween={50}
         slidesPerView={6}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         mousewheel={true}
         autoplay={{
           delay: 1500,
@@ -55,7 +54,7 @@ export default function HomeStep3(): JSX.Element {
       >
         {slideImgs.map((slide) => {
           return (
-            <SwiperSlide style={slideStyle}>
+            <SwiperSlide key={slide} style={slideStyle}>
               <img
                 style={{ objectFit: "contain", width: "100px", height: "auto" }}
                 src={slide}

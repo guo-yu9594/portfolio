@@ -35,7 +35,7 @@ const hookBoxStyle: SxProps = {
 };
 
 const SkillBoxStyle: SxProps = {
-  bgcolor: palette.light.secondary,
+  bgcolor: palette.light.darkGrey,
   width: "100%",
   height: "50%",
   borderRadius: 25,
@@ -55,7 +55,7 @@ export default function HomeStep2(): JSX.Element {
   const arrowDropDownCircleIcons = generateArrowDropDownIcons(6, {
     width: 80,
     height: 80,
-    color: "white",
+    color: "black",
   });
 
   const [skill1Display, setSkill1Display] = useState(false);
@@ -75,7 +75,7 @@ export default function HomeStep2(): JSX.Element {
       <Stack direction="row" sx={{ height: "95%", width: "95%" }} spacing={2}>
         <Grow in={true}>
           <CardActionArea sx={hookBoxStyle}>
-            <Typography color="white" sx={{ fontSize: 70, fontWeight: 600 }}>
+            <Typography color="black" sx={{ fontSize: 70, fontWeight: 600 }}>
               Explorez ma forge numérique polyvalente.
             </Typography>
             <Stack
@@ -92,9 +92,9 @@ export default function HomeStep2(): JSX.Element {
           <Grow in={skill1Display}>
             <CardActionArea sx={SkillBoxStyle}>
               <Stack direction="row" spacing={10}>
-                <CategoryIcon style={{ width: 80, height: 80 }} />
+                <CategoryIcon style={{ width: 80, height: 80, color: palette.light.primary }} />
                 <Typography
-                  color={palette.light.black}
+                  color={palette.light.primary}
                   sx={{ fontSize: 40, fontWeight: 600 }}
                 >
                   Software Development
@@ -105,9 +105,9 @@ export default function HomeStep2(): JSX.Element {
           <Grow in={skill2Display}>
             <CardActionArea sx={SkillBoxStyle}>
               <Stack direction="row" spacing={10}>
-                <WebIcon style={{ width: 80, height: 80 }} />
+                <WebIcon style={{ width: 80, height: 80, color: palette.light.primary }} />
                 <Typography
-                  color={palette.light.black}
+                  color={palette.light.primary}
                   sx={{ fontSize: 40, fontWeight: 600 }}
                 >
                   Web Development
