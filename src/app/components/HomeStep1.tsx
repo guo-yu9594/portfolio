@@ -1,6 +1,12 @@
 "use client";
 
-import { Collapse, Fade, LinearProgress, Stack, Typography } from "@mui/material";
+import {
+  Collapse,
+  Fade,
+  LinearProgress,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { palette } from "@/app/layout";
 import { useEffect, useState } from "react";
 
@@ -32,7 +38,7 @@ export default function HomeStep1(): JSX.Element {
       justifyContent="center"
     >
       <Collapse in={titleDisplay}>
-        <Typography sx={{ color: "white", fontWeight: 800, fontSize: "5rem" }}>
+        <Typography sx={{ color: "white", fontWeight: 800, fontSize: "5rem", textAlign: "center" }}>
           GUO YU
         </Typography>
       </Collapse>

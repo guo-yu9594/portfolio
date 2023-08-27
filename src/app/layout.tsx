@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     onClick={handleDrawerToggle}
                     sx={{ mr: 2, display: { sm: "none" } }}
                   >
-                    <MenuIcon />
+                    <MenuIcon sx={{ color: 'white' }} />
                   </IconButton>
                   <Stack
                     direction="row"
@@ -133,7 +133,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </AppBar>
               <nav>
                 <Drawer
-                  container={window.document.body}
                   variant="temporary"
                   open={mobileOpen}
                   onClose={handleDrawerToggle}
