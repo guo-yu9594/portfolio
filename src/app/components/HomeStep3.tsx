@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Box, SxProps } from "@mui/material";
 import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper/modules";
-import { CSSProperties } from "react";
-import { palette } from "../layout";
+import React, { CSSProperties } from "react";
+import { palette } from "@/app/theme";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -38,7 +38,7 @@ const slideImgs = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
 ];
 
-export default function HomeStep3(): JSX.Element {
+const HomeStep3: React.FC = (): JSX.Element => {
   return (
     <Box sx={mainBoxStyle}>
       <Swiper
@@ -67,3 +67,5 @@ export default function HomeStep3(): JSX.Element {
     </Box>
   );
 }
+
+export default HomeStep3;

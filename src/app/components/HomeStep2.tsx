@@ -3,8 +3,8 @@
 import WebIcon from "@mui/icons-material/Web";
 import CategoryIcon from "@mui/icons-material/Category";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
-import { CSSProperties, useEffect, useState } from "react";
-import { palette } from "@/app/layout";
+import { CSSProperties, MutableRefObject, useEffect, useState } from "react";
+import { palette } from "@/app/theme";
 import {
   Box,
   CardActionArea,
@@ -51,7 +51,11 @@ const generateArrowDropDownIcons = (count: number, style: CSSProperties) => {
   return icons;
 };
 
-export default function HomeStep2(): JSX.Element {
+interface HomeStep2Props {
+  handleScroll?: () => void;
+}
+
+const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
   const arrowDropDownCircleIcons = generateArrowDropDownIcons(6, {
     width: 80,
     height: 80,
@@ -72,7 +76,7 @@ export default function HomeStep2(): JSX.Element {
     <Box sx={mainBoxStyle}>
       <Stack direction="row" sx={{ height: "95%", width: "95%" }} spacing={2}>
         <Grow in={true}>
-          <CardActionArea sx={hookBoxStyle}>
+          <CardActionArea sx={hookBoxStyle} onClick={handleScroll}>
             <Typography color="black" sx={{ fontSize: 70, fontWeight: 600 }}>
               Explorez ma forge numérique polyvalente.
             </Typography>
@@ -88,7 +92,7 @@ export default function HomeStep2(): JSX.Element {
         </Grow>
         <Stack sx={{ width: "50%", height: "100%" }} spacing={2}>
           <Grow in={skill1Display}>
-            <CardActionArea sx={SkillBoxStyle}>
+            <CardActionArea sx={SkillBoxStyle} onClick={handleScroll}>
               <Stack direction="row" spacing={10}>
                 <CategoryIcon color="primary" sx={{ width: 80, height: 80 }} />
                 <Typography color="primary" fontSize={40} fontWeight={600}>
@@ -98,7 +102,7 @@ export default function HomeStep2(): JSX.Element {
             </CardActionArea>
           </Grow>
           <Grow in={skill2Display}>
-            <CardActionArea sx={SkillBoxStyle}>
+            <CardActionArea sx={SkillBoxStyle} onClick={handleScroll}>
               <Stack direction="row" spacing={10}>
                 <WebIcon color="primary" sx={{ width: 80, height: 80 }} />
                 <Typography color="primary" fontSize={40} fontWeight={600}>
@@ -111,4 +115,6 @@ export default function HomeStep2(): JSX.Element {
       </Stack>
     </Box>
   );
-}
+};
+
+export default HomeStep2;

@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { palette } from "@/app/layout";
+import { palette } from "@/app/theme";
 import { useEffect, useState } from "react";
 
 export default function HomeStep1(): JSX.Element {

@@ -22,52 +22,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactNode, useEffect, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
-
-export const palette = {
-  light: {
-    primary: "#D0FF94",
-    primaryDarken: "#b3e079",
-    secondary: "#C3BEF7",
-    secondaryDarken: "#8f89cc",
-    darkGrey: "#11140d",
-    black: "black",
-  },
-};
-
-const theme = createTheme({
-  typography: {
-    fontFamily: "Inter, sans-serif",
-    button: {
-      textTransform: "none",
-    },
-  },
-  palette: {
-    primary: {
-      main: palette.light.primary,
-      light: palette.light.primary,
-      dark: palette.light.primaryDarken,
-      contrastText: "black",
-    },
-    secondary: {
-      main: palette.light.secondary,
-      light: palette.light.secondary,
-      dark: palette.light.secondaryDarken,
-      contrastText: palette.light.black,
-    },
-    error: {
-      main: "#f44336",
-    },
-    warning: {
-      main: "#ff9800",
-    },
-    info: {
-      main: "#2196f3",
-    },
-    success: {
-      main: "#4caf50",
-    },
-  },
-});
+import theme, { palette } from "@/app/theme";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
@@ -98,7 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <html lang="en">
+    <html lang="fr">
       <body>
         <ThemeRegistry>
           <ThemeProvider theme={theme}>

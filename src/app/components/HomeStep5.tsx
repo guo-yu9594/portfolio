@@ -1,8 +1,17 @@
 "use client";
 
-import { Box, CardActionArea, Stack, SxProps, Typography } from "@mui/material";
-import { palette } from "../layout";
-import { CSSProperties } from "react";
+import {
+  Box,
+  CardActionArea,
+  Collapse,
+  Grow,
+  Stack,
+  SxProps,
+  Typography,
+  Zoom,
+} from "@mui/material";
+import { palette } from "@/app/theme";
+import { CSSProperties, useEffect, useState } from "react";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const mainBoxStyle: SxProps = {
@@ -77,33 +86,58 @@ const arrowIconStyle: SxProps = {
 };
 
 export default function HomeStep5(): JSX.Element {
+  const [isDisplay, setIsDisplay] = useState(false);
+  const [projectsDisplay, setProjectsDisplay] = useState(
+    new Array(projects.length).fill(false)
+  );
+
+  useEffect(() => {
+    const checkDisplayCond = () => {
+      if (isDisplay === false && window.scrollY >= 1048) setIsDisplay(true);
+      else if (isDisplay === true && window.scrollY < 1048) setIsDisplay(false);
+    };
+    checkDisplayCond();
+    if (isDisplay === true) {
+      setTimeout(() => {
+        for (let i = 0; i < projectsDisplay.length; i++) {
+          if (projectsDisplay[i] === false) {
+            let tmp = [...projectsDisplay];
+            tmp[i] = true;
+            setProjectsDisplay(tmp);
+            return;
+          }
+        }
+      }, 150);
+    } else if (projectsDisplay.includes(true))
+      setProjectsDisplay(new Array(projects.length).fill(false));
+    window.addEventListener("scroll", checkDisplayCond);
+  }, [isDisplay, projectsDisplay]);
+
   return (
     <Box sx={mainBoxStyle}>
       <Stack sx={{ width: "95%", height: "95%" }} direction="row" spacing={5}>
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           return (
-            <CardActionArea
-              key={project.name}
-              sx={projectBoxStyle}
-              href={project.link}
-              target="_blank"
-            >
-              <img
-                style={imageStyle}
-                src={project.imgSrc}
-                alt={project.imgAlt}
-              ></img>
-              <Typography color="black" sx={projectNameStyle}>
-                {"// " + project.name}
-              </Typography>
-              <Typography color="black" sx={projectDescStyle}>
-                {project.description}
-              </Typography>
-              <ArrowOutwardIcon
-                fontSize="large"
-                sx={arrowIconStyle}
-              />
-            </CardActionArea>
+            <Zoom in={projectsDisplay[index]} key={project.name}>
+              <CardActionArea
+                sx={projectBoxStyle}
+                href={project.link}
+                target="_blank"
+              >
+                <img
+                  style={imageStyle}
+                  src={project.imgSrc}
+                  alt={project.imgAlt}
+                ></img>
+                <Typography color="black" sx={projectNameStyle}>
+                  {"// " + project.name}
+                </Typography>
+                <Typography color="black" sx={projectDescStyle}>
+                  {project.description}
+                </Typography>
+                <ArrowOutwardIcon fontSize="large" sx={arrowIconStyle} />
+              </CardActionArea>
+            </Zoom>
           );
         })}
       </Stack>
