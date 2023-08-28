@@ -63,12 +63,10 @@ export default function HomeStep2(): JSX.Element {
 
   useEffect(() => {
     setTimeout(() => {
-      if (skill1Display === false)
-        setSkill1Display(true);
-      if (skill1Display === true)
-        setSkill2Display(true);
+      if (skill1Display === false) setSkill1Display(true);
+      if (skill1Display === true) setSkill2Display(true);
     }, 150);
-  })
+  });
 
   return (
     <Box sx={mainBoxStyle}>
@@ -92,11 +90,8 @@ export default function HomeStep2(): JSX.Element {
           <Grow in={skill1Display}>
             <CardActionArea sx={SkillBoxStyle}>
               <Stack direction="row" spacing={10}>
-                <CategoryIcon style={{ width: 80, height: 80, color: palette.light.primary }} />
-                <Typography
-                  color={palette.light.primary}
-                  sx={{ fontSize: 40, fontWeight: 600 }}
-                >
+                <CategoryIcon color="primary" sx={{ width: 80, height: 80 }} />
+                <Typography color="primary" fontSize={40} fontWeight={600}>
                   Software Development
                 </Typography>
               </Stack>
@@ -105,11 +100,8 @@ export default function HomeStep2(): JSX.Element {
           <Grow in={skill2Display}>
             <CardActionArea sx={SkillBoxStyle}>
               <Stack direction="row" spacing={10}>
-                <WebIcon style={{ width: 80, height: 80, color: palette.light.primary }} />
-                <Typography
-                  color={palette.light.primary}
-                  sx={{ fontSize: 40, fontWeight: 600 }}
-                >
+                <WebIcon color="primary" sx={{ width: 80, height: 80 }} />
+                <Typography color="primary" fontSize={40} fontWeight={600}>
                   Web Development
                 </Typography>
               </Stack>
