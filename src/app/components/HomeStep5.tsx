@@ -3,6 +3,7 @@
 import { Box, CardActionArea, Stack, SxProps, Typography } from "@mui/material";
 import { palette } from "../layout";
 import { CSSProperties } from "react";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -49,6 +50,7 @@ const projects = [
     imgSrc: "https://github.com/guo-yu9594/area/raw/main/public/web.png",
     imgAlt: "area-picture",
     description: "1+ month group project",
+    link: "https://github.com/guo-yu9594/area",
   },
   {
     name: "Interview.",
@@ -56,6 +58,7 @@ const projects = [
       "https://github.com/guo-yu9594/particeep-interview/raw/master/public/app_screen.png",
     imgAlt: "interview-picture",
     description: "2 days individual project challenge",
+    link: "https://github.com/guo-yu9594/particeep-interview",
   },
   {
     name: "Adopte un chat",
@@ -63,8 +66,15 @@ const projects = [
       "https://github.com/guo-yu9594/CAT_ADOPT_APP/raw/main/asset/cat-app.png",
     imgAlt: "cat-adopt-picture",
     description: "1 day individual project challenge",
+    link: "https://github.com/guo-yu9594/CAT_ADOPT_APP",
   },
 ];
+
+const arrowIconStyle: SxProps = {
+  position: "absolute",
+  bottom: 50,
+  right: 50,
+};
 
 export default function HomeStep5(): JSX.Element {
   return (
@@ -72,21 +82,27 @@ export default function HomeStep5(): JSX.Element {
       <Stack sx={{ width: "95%", height: "95%" }} direction="row" spacing={5}>
         {projects.map((project) => {
           return (
-            <CardActionArea key={project.name} sx={projectBoxStyle}>
+            <CardActionArea
+              key={project.name}
+              sx={projectBoxStyle}
+              href={project.link}
+              target="_blank"
+            >
               <img
                 style={imageStyle}
                 src={project.imgSrc}
                 alt={project.imgAlt}
               ></img>
-              <Typography
-                color="black"
-                sx={projectNameStyle}
-              >
+              <Typography color="black" sx={projectNameStyle}>
                 {"// " + project.name}
               </Typography>
               <Typography color="black" sx={projectDescStyle}>
-                { project.description }
+                {project.description}
               </Typography>
+              <ArrowOutwardIcon
+                fontSize="large"
+                sx={arrowIconStyle}
+              />
             </CardActionArea>
           );
         })}
