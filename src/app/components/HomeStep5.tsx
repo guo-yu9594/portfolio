@@ -3,12 +3,10 @@
 import {
   Box,
   CardActionArea,
-  Collapse,
   Grow,
   Stack,
   SxProps,
   Typography,
-  Zoom,
 } from "@mui/material";
 import { palette } from "@/app/theme";
 import { CSSProperties, useEffect, useState } from "react";
@@ -32,13 +30,20 @@ const projectBoxStyle: SxProps = {
   flexDirection: "column",
   alignItems: "start",
   justifyContent: "start",
+  overflow: "hidden",
+};
+
+const imageBoxStyle: SxProps = {
+  width: "100%",
+  height: "65%",
+  overflow: "hidden",
 };
 
 const imageStyle: CSSProperties = {
   objectFit: "cover",
   width: "100%",
-  height: "65%",
-  borderRadius: "97px 97px 0 0",
+  height: "100%",
+  transition: "transform 0.4s",
 };
 
 const projectNameStyle: SxProps = {
@@ -90,6 +95,15 @@ export default function HomeStep5(): JSX.Element {
   const [projectsDisplay, setProjectsDisplay] = useState(
     new Array(projects.length).fill(false)
   );
+  const [isHovered, setIsHovered] = useState(-1);
+
+  const handleMouseEnter = (index: number) => {
+    setIsHovered(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(-1);
+  };
 
   useEffect(() => {
     const checkDisplayCond = () => {
@@ -118,17 +132,25 @@ export default function HomeStep5(): JSX.Element {
       <Stack sx={{ width: "95%", height: "95%" }} direction="row" spacing={5}>
         {projects.map((project, index) => {
           return (
-            <Zoom in={projectsDisplay[index]} key={project.name}>
+            <Grow in={projectsDisplay[index]} key={project.name}>
               <CardActionArea
                 sx={projectBoxStyle}
                 href={project.link}
                 target="_blank"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave()}
               >
-                <img
-                  style={imageStyle}
-                  src={project.imgSrc}
-                  alt={project.imgAlt}
-                ></img>
+                <Box sx={imageBoxStyle}>
+                  <img
+                    style={{
+                      ...imageStyle,
+                      transform:
+                        isHovered === index ? "scale(1.1)" : "scale(1)",
+                    }}
+                    src={project.imgSrc}
+                    alt={project.imgAlt}
+                  ></img>
+                </Box>
                 <Typography color="black" sx={projectNameStyle}>
                   {"// " + project.name}
                 </Typography>
@@ -137,7 +159,7 @@ export default function HomeStep5(): JSX.Element {
                 </Typography>
                 <ArrowOutwardIcon fontSize="large" sx={arrowIconStyle} />
               </CardActionArea>
-            </Zoom>
+            </Grow>
           );
         })}
       </Stack>
