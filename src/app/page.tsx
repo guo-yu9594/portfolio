@@ -6,6 +6,7 @@ import HomeStep2 from "./components/HomeStep2";
 import HomeStep3 from "./components/HomeStep3";
 import HomeStep4 from "./components/HomeStep4";
 import HomeStep5 from "./components/HomeStep5";
+import HomeStep6 from "./components/HomeStep6";
 
 const HomePage: React.FC = (): JSX.Element => {
   const step3Ref = useRef<HTMLDivElement>(null);
@@ -22,6 +23,7 @@ const HomePage: React.FC = (): JSX.Element => {
       </div>
       <HomeStep4 />
       <HomeStep5 />
+      <HomeStep6 />
     </>
   );
 };
