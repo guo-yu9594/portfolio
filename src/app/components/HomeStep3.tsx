@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Box, SxProps } from "@mui/material";
 import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper/modules";
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import { palette } from "@/app/theme";
 
 const mainBoxStyle: SxProps = {
@@ -38,13 +38,36 @@ const slideImgs = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
 ];
 
+const breakpoints = [
+  { minWidth: 1536, nbSlides: 6 },
+  { minWidth: 1200, nbSlides: 5 },
+  { minWidth: 900, nbSlides: 4 },
+  { minWidth: 600, nbSlides: 3 },
+  { minWidth: 0, nbSlides: 2 },
+]; // based on Mui breakpoints
+
 const HomeStep3: React.FC = (): JSX.Element => {
+  const [slidesPerView, setSlidePerView] = useState(6);
+
+  useEffect(() => {
+    const handleResize = (): void => {
+      for (const point of breakpoints) {
+        if (window.innerWidth > point.minWidth) {
+          setSlidePerView(point.nbSlides);
+          return;
+        }
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Box sx={mainBoxStyle}>
       <Swiper
-        style={{ width: '100%' }}
+        style={{ width: "100%" }}
         spaceBetween={50}
-        slidesPerView={6}
+        slidesPerView={slidesPerView}
         mousewheel={true}
         autoplay={{
           delay: 1500,
@@ -66,6 +89,6 @@ const HomeStep3: React.FC = (): JSX.Element => {
       </Swiper>
     </Box>
   );
-}
+};
 
 export default HomeStep3;

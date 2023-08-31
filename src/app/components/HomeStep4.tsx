@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
-  height: "40vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -21,10 +20,9 @@ const mainBoxStyle: SxProps = {
 
 const educationBoxStyle: SxProps = {
   width: "100%",
-  height: "95%",
   bgcolor: palette.light.darkGrey,
   display: "flex",
-  flexDirection: "row",
+  flexDirection: {lg: "row", xs: "column-reverse"},
   borderRadius: 25,
   cursor: "default",
   "&:hover": {
@@ -33,7 +31,7 @@ const educationBoxStyle: SxProps = {
 };
 
 const educationTextBoxStyle: SxProps = {
-  width: "65%",
+  width: {lg: "65%", xs: "90%"},
   height: "100%",
   bgcolor: palette.light.darkGrey,
   borderRadius: 25,
@@ -41,7 +39,7 @@ const educationTextBoxStyle: SxProps = {
 };
 
 const educationLogoBoxStyle: SxProps = {
-  width: "35%",
+  width: {lg: "35%", xs: "100%"},
   height: "100%",
   bgcolor: palette.light.primary,
   borderRadius: 25,

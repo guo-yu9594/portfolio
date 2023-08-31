@@ -14,7 +14,6 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
-  height: "50vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -23,7 +22,7 @@ const mainBoxStyle: SxProps = {
 
 const projectBoxStyle: SxProps = {
   width: "100%",
-  height: "100%",
+  height: "50vh",
   bgcolor: palette.light.primary,
   borderRadius: 25,
   display: "flex",
@@ -31,6 +30,7 @@ const projectBoxStyle: SxProps = {
   alignItems: "start",
   justifyContent: "start",
   overflow: "hidden",
+  mb: { lg: 0, xs: "20px" },
 };
 
 const imageBoxStyle: SxProps = {
@@ -129,7 +129,11 @@ export default function HomeStep5(): JSX.Element {
 
   return (
     <Box sx={mainBoxStyle}>
-      <Stack sx={{ width: "95%", height: "95%" }} direction="row" spacing={5}>
+      <Stack
+        sx={{ width: "95%", height: "95%" }}
+        direction={{ lg: "row", xs: "column" }}
+        spacing={5}
+      >
         {projects.map((project, index) => {
           return (
             <Grow in={projectsDisplay[index]} key={project.name}>

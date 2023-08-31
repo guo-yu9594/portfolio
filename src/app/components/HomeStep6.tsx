@@ -16,7 +16,7 @@ import { MouseEvent, useEffect, useState } from "react";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
-  height: "50vh",
+  minHeight: "50vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -25,7 +25,6 @@ const mainBoxStyle: SxProps = {
 
 const contactBoxStyle: SxProps = {
   width: "100%",
-  height: "95%",
   bgcolor: palette.light.darkGrey,
   borderRadius: 25,
   alignItems: "center",
@@ -33,8 +32,7 @@ const contactBoxStyle: SxProps = {
 };
 
 const titleBoxStyle: SxProps = {
-  width: "60%",
-  height: "100%",
+  width: { lg: "60%", xs: "100%" },
   display: "flex",
   p: 8,
   alignItems: "center",
@@ -42,8 +40,7 @@ const titleBoxStyle: SxProps = {
 };
 
 const contactFormStyle: SxProps = {
-  width: "40%",
-  height: "100%",
+  width: { lg: "40%", xs: "100%" },
   p: 8,
   alignItems: "center",
   bgcolor: palette.light.primary,
@@ -106,12 +103,16 @@ export default function HomeStep6(): JSX.Element {
   return (
     <Box sx={mainBoxStyle}>
       <Collapse in={isDisplay} sx={{ width: "95%" }}>
-        <Stack sx={contactBoxStyle} direction="row">
+        <Stack sx={contactBoxStyle} direction={{ lg: "row", xs: "column-reverse" }}>
           <Stack sx={contactFormStyle} direction="column" spacing={3}>
             <Typography color="black" fontSize={55} fontWeight={800}>
               Contact
             </Typography>
-            <Stack direction="row" spacing={2}>
+            <Stack
+              direction={{ xs: "column", xl: "row" }}
+              sx={{ alignItems: { xs: "center", sm: "start" } }}
+              spacing={2}
+            >
               <Button
                 variant="outlined"
                 sx={contactInfoStyle}

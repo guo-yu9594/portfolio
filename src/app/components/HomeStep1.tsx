@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 export default function HomeStep1(): JSX.Element {
   const [titleDisplay, setTitleDisplay] = useState(false);
   const [subtitleDisplay, setSubtitleDisplay] = useState(false);
+  const [nbIcons, setNbIcons] = useState(6);
 
   useEffect(() => {
     if (titleDisplay === false) {
@@ -38,7 +39,14 @@ export default function HomeStep1(): JSX.Element {
       justifyContent="center"
     >
       <Collapse in={titleDisplay}>
-        <Typography sx={{ color: "white", fontWeight: 800, fontSize: "5rem", textAlign: "center" }}>
+        <Typography
+          sx={{
+            color: "white",
+            fontWeight: 800,
+            fontSize: "5rem",
+            textAlign: "center",
+          }}
+        >
           GUO YU
         </Typography>
       </Collapse>
