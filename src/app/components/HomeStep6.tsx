@@ -56,6 +56,7 @@ const contactInfoStyle: SxProps = {
   fontSize: { xs: 20, sm: 22, lg: 25 },
   borderColor: "black",
   border: 2,
+  textAlign: "center",
   "&:hover": {
     borderColor: "black",
     border: 2,
