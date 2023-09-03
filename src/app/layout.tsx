@@ -107,7 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </nav>
               <Box
                 component="main"
-                sx={{ backgroundColor: palette.light.black }}
+                sx={{ backgroundColor: palette.light.bg }}
               >
                 <Toolbar />
                 {children}

@@ -52,13 +52,13 @@ const contactInfoStyle: SxProps = {
   height: "fit-content",
   p: 2,
   borderRadius: style.borderRadius,
-  color: "black",
+  color: palette.light.bg,
   fontSize: { xs: 20, sm: 22, lg: 25 },
-  borderColor: "black",
+  borderColor: palette.light.bg,
   border: 2,
   textAlign: "center",
   "&:hover": {
-    borderColor: "black",
+    borderColor: palette.light.bg,
     border: 2,
   },
 };
@@ -106,7 +106,7 @@ export default function HomeStep6(): JSX.Element {
       <Collapse in={isDisplay} sx={{ width: "95%" }}>
         <Stack sx={contactBoxStyle} direction={{ lg: "row", xs: "column-reverse" }}>
           <Stack sx={contactFormStyle} direction="column" spacing={3}>
-            <Typography color="black" fontSize={55} fontWeight={800}>
+            <Typography color={palette.light.bg} fontSize={55} fontWeight={800}>
               Contact
             </Typography>
             <Stack

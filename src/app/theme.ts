@@ -2,12 +2,12 @@ import { SxProps, createTheme } from "@mui/material";
 
 export const palette = {
   light: {
-    primary: "#D0FF94",
+    primary: "#FFF6E0",
     primaryDarken: "#b3e079",
     secondary: "#C3BEF7",
     secondaryDarken: "#8f89cc",
-    darkGrey: "#11140d",
-    black: "black",
+    darkGrey: "#171613",
+    bg: "#0f0f0d",
   },
 };
 
@@ -45,7 +45,7 @@ const theme = createTheme({
       main: palette.light.secondary,
       light: palette.light.secondary,
       dark: palette.light.secondaryDarken,
-      contrastText: palette.light.black,
+      contrastText: palette.light.bg,
     },
     error: {
       main: "#f44336",

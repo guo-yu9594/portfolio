@@ -76,7 +76,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
   const arrowDropDownCircleIcons = generateArrowDropDownIcons(nbIcons, {
     width: 80,
     height: 80,
-    color: "black",
+    color: palette.light.bg,
   });
 
   const [skill1Display, setSkill1Display] = useState(false);
@@ -110,7 +110,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
         <Grow in={true}>
           <CardActionArea sx={hookBoxStyle} onClick={handleScroll}>
             <Typography
-              color="black"
+              color={palette.light.bg}
               sx={{ fontSize: { xs: 40, sm: 70 }, fontWeight: 600 }}
             >
               Explorez ma forge numérique polyvalente.

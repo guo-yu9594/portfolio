@@ -23,7 +23,7 @@ const mainBoxStyle: SxProps = {
 const projectBoxStyle: SxProps = {
   width: "100%",
   height: { xs: "350px", sm: "470px" },
-  bgcolor: palette.light.primary,
+  bgcolor: palette.light.darkGrey,
   borderRadius: style.borderRadius,
   display: "flex",
   flexDirection: "column",
@@ -50,7 +50,7 @@ const projectNameStyle: SxProps = {
   ml: 6,
   mt: 3,
   fontSize: 25,
-  fontWeight: 600,
+  fontWeight: 900,
 };
 
 const projectDescStyle: SxProps = {
@@ -88,6 +88,7 @@ const arrowIconStyle: SxProps = {
   position: "absolute",
   bottom: 50,
   right: 50,
+  color: palette.light.primary
 };
 
 export default function HomeStep5(): JSX.Element {
@@ -155,10 +156,10 @@ export default function HomeStep5(): JSX.Element {
                     alt={project.imgAlt}
                   ></img>
                 </Box>
-                <Typography color="black" sx={projectNameStyle}>
+                <Typography color={palette.light.primary} sx={projectNameStyle}>
                   {"// " + project.name}
                 </Typography>
-                <Typography color="black" sx={projectDescStyle}>
+                <Typography color={palette.light.primary} sx={projectDescStyle}>
                   {project.description}
                 </Typography>
                 <ArrowOutwardIcon fontSize="large" sx={arrowIconStyle} />

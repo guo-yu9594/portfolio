@@ -29,7 +29,7 @@ export default function HomeStep1(): JSX.Element {
   return (
     <Stack
       sx={{
-        backgroundColor: palette.light.black,
+        backgroundColor: palette.light.bg,
         height: "470px",
         width: "100vw",
       }}

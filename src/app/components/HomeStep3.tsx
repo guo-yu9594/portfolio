@@ -9,7 +9,7 @@ import { palette } from "@/app/theme";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
-  height: "315px",
+  height: { xs: "250px", sm: "315px" },
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
