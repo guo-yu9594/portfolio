@@ -2,7 +2,6 @@
 
 import {
   Collapse,
-  Fade,
   LinearProgress,
   Stack,
   Typography,
@@ -13,7 +12,6 @@ import { useEffect, useState } from "react";
 export default function HomeStep1(): JSX.Element {
   const [titleDisplay, setTitleDisplay] = useState(false);
   const [subtitleDisplay, setSubtitleDisplay] = useState(false);
-  const [nbIcons, setNbIcons] = useState(6);
 
   useEffect(() => {
     if (titleDisplay === false) {
@@ -32,7 +30,7 @@ export default function HomeStep1(): JSX.Element {
     <Stack
       sx={{
         backgroundColor: palette.light.black,
-        height: "50vh",
+        height: "470px",
         width: "100vw",
       }}
       alignItems="center"
@@ -43,7 +41,7 @@ export default function HomeStep1(): JSX.Element {
           sx={{
             color: "white",
             fontWeight: 800,
-            fontSize: "5rem",
+            fontSize: {xs: "4rem", sm: "5rem"},
             textAlign: "center",
           }}
         >
@@ -55,7 +53,8 @@ export default function HomeStep1(): JSX.Element {
           sx={{
             color: palette.light.primary,
             fontWeight: 300,
-            fontSize: "3rem",
+            fontSize: {xs: "2rem", md: "3rem"},
+            textAlign: "center",
           }}
         >
           Freelance software engineer
@@ -64,7 +63,7 @@ export default function HomeStep1(): JSX.Element {
       <LinearProgress
         sx={{
           position: "absolute",
-          bottom: "50%",
+          top: "470px",
           width: "100%",
           filter: `drop-shadow(0px 0px 20px ${palette.light.primary})`,
         }}

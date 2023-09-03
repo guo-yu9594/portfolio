@@ -7,7 +7,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette } from "@/app/theme";
+import { palette, style } from "@/app/theme";
 import { useEffect, useState } from "react";
 
 const mainBoxStyle: SxProps = {
@@ -23,7 +23,7 @@ const educationBoxStyle: SxProps = {
   bgcolor: palette.light.darkGrey,
   display: "flex",
   flexDirection: {lg: "row", xs: "column-reverse"},
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
   cursor: "default",
   "&:hover": {
     opacity: 1,
@@ -34,15 +34,16 @@ const educationTextBoxStyle: SxProps = {
   width: {lg: "65%", xs: "90%"},
   height: "100%",
   bgcolor: palette.light.darkGrey,
-  borderRadius: 25,
-  p: 7,
+  borderRadius: style.borderRadius,
+  px: {xs: 3, sm: 7},
+  py: 7,
 };
 
 const educationLogoBoxStyle: SxProps = {
   width: {lg: "35%", xs: "100%"},
   height: "100%",
   bgcolor: palette.light.primary,
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
   display: "flex",
   p: 7,
   alignItems: "center",
@@ -73,7 +74,7 @@ export default function HomeStep4(): JSX.Element {
               Formé dans l'école de l'expertise informatique
             </Typography>
             <br />
-            <Typography color="primary" fontSize={25} fontWeight={300}>
+            <Typography color="primary" fontSize={{xs: 20, sm: 25}} fontWeight={300}>
               Déjà doté d'un Bachelor d'excellence d'Epitech en poche, je trace
               maintenant ma voie vers le niveau de compétence supérieur en tant
               qu'étudiant en Master. Mon parcours m'a conduit à maîtriser les

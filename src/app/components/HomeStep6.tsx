@@ -11,7 +11,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette } from "@/app/theme";
+import { palette, style } from "@/app/theme";
 import { MouseEvent, useEffect, useState } from "react";
 
 const mainBoxStyle: SxProps = {
@@ -26,7 +26,7 @@ const mainBoxStyle: SxProps = {
 const contactBoxStyle: SxProps = {
   width: "100%",
   bgcolor: palette.light.darkGrey,
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
   alignItems: "center",
   justifyContent: "center",
 };
@@ -44,16 +44,16 @@ const contactFormStyle: SxProps = {
   p: 8,
   alignItems: "center",
   bgcolor: palette.light.primary,
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
 };
 
 const contactInfoStyle: SxProps = {
   width: "fit-content",
   height: "fit-content",
   p: 2,
-  borderRadius: 25,
-  fontSize: 25,
+  borderRadius: style.borderRadius,
   color: "black",
+  fontSize: { xs: 20, sm: 22, lg: 25 },
   borderColor: "black",
   border: 2,
   "&:hover": {
@@ -110,7 +110,7 @@ export default function HomeStep6(): JSX.Element {
             </Typography>
             <Stack
               direction={{ xs: "column", xl: "row" }}
-              sx={{ alignItems: { xs: "center", sm: "start" } }}
+              sx={{ alignItems: { xs: "center", lg: "start" } }}
               spacing={2}
             >
               <Button
@@ -145,7 +145,7 @@ export default function HomeStep6(): JSX.Element {
             </Button>
           </Stack>
           <Box sx={titleBoxStyle}>
-            <Typography color="primary" fontWeight={800} fontSize={65}>
+            <Typography color="primary" fontWeight={800} fontSize={{ xs: 35, sm: 65}}>
               Donnez vie à vos idées avec des solutions numériques sur mesure !
             </Typography>
           </Box>

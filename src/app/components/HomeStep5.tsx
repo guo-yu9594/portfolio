@@ -8,7 +8,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette } from "@/app/theme";
+import { palette, style } from "@/app/theme";
 import { CSSProperties, useEffect, useState } from "react";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
@@ -22,9 +22,9 @@ const mainBoxStyle: SxProps = {
 
 const projectBoxStyle: SxProps = {
   width: "100%",
-  height: "50vh",
+  height: { xs: "350px", sm: "470px" },
   bgcolor: palette.light.primary,
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
   display: "flex",
   flexDirection: "column",
   alignItems: "start",

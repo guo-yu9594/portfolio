@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { SxProps, createTheme } from "@mui/material";
 
 export const palette = {
   light: {
@@ -9,6 +9,10 @@ export const palette = {
     darkGrey: "#11140d",
     black: "black",
   },
+};
+
+export const style = {
+  borderRadius: { xs: 15, sm: 25 },
 };
 
 const theme = createTheme({

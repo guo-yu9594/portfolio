@@ -4,7 +4,7 @@ import WebIcon from "@mui/icons-material/Web";
 import CategoryIcon from "@mui/icons-material/Category";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import { CSSProperties, MutableRefObject, useEffect, useState } from "react";
-import { palette } from "@/app/theme";
+import { palette, style } from "@/app/theme";
 import {
   Box,
   CardActionArea,
@@ -24,8 +24,8 @@ const mainBoxStyle: SxProps = {
 const hookBoxStyle: SxProps = {
   bgcolor: palette.light.primary,
   width: { xs: "100%", lg: "50%" },
-  height: "60vh",
-  borderRadius: 25,
+  height: "565px",
+  borderRadius: style.borderRadius,
   p: 7,
   cursor: "pointer",
   display: "flex",
@@ -37,7 +37,7 @@ const SkillBoxStyle: SxProps = {
   bgcolor: palette.light.darkGrey,
   width: "100%",
   height: "50%",
-  borderRadius: 25,
+  borderRadius: style.borderRadius,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -45,7 +45,7 @@ const SkillBoxStyle: SxProps = {
 
 const SkillBoxTextStyle: SxProps = {
   color: palette.light.primary,
-  fontSize: 40,
+  fontSize: {xs: 25, sm: 40},
   fontWeight: 600,
   textAlign: "center",
 };
@@ -93,7 +93,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
-  
+
     setTimeout(() => {
       if (skill1Display === false) setSkill1Display(true);
       if (skill1Display === true) setSkill2Display(true);
@@ -109,11 +109,14 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
       >
         <Grow in={true}>
           <CardActionArea sx={hookBoxStyle} onClick={handleScroll}>
-            <Typography color="black" sx={{ fontSize: 70, fontWeight: 600 }}>
+            <Typography
+              color="black"
+              sx={{ fontSize: { xs: 40, sm: 70 }, fontWeight: 600 }}
+            >
               Explorez ma forge numérique polyvalente.
             </Typography>
             <Stack
-              direction="row"
+              direction="row" 
               mt="20"
               spacing={2}
               sx={{ alignItems: "center", justifyContent: "center" }}
@@ -123,7 +126,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
           </CardActionArea>
         </Grow>
         <Stack
-          sx={{ width: { xs: "100%", lg: "50%" }, height: "60vh" }}
+          sx={{ width: { xs: "100%", lg: "50%" }, height: "565px" }}
           spacing={2}
         >
           <Grow in={skill1Display}>
