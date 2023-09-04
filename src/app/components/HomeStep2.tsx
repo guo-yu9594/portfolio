@@ -24,9 +24,9 @@ const mainBoxStyle: SxProps = {
 const hookBoxStyle: SxProps = {
   bgcolor: palette.light.primary,
   width: { xs: "100%", lg: "50%" },
-  height: "565px",
+  height: { xs: "fit-content", sm: "565px" },
   borderRadius: style.borderRadius,
-  p: 7,
+  p: { xs: 5, sm: 7 },
   cursor: "pointer",
   display: "flex",
   flexDirection: "column",
@@ -45,7 +45,7 @@ const SkillBoxStyle: SxProps = {
 
 const SkillBoxTextStyle: SxProps = {
   color: palette.light.primary,
-  fontSize: {xs: 25, sm: 40},
+  fontSize: { xs: 25, sm: 40 },
   fontWeight: 600,
   textAlign: "center",
 };
@@ -111,12 +111,16 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
           <CardActionArea sx={hookBoxStyle} onClick={handleScroll}>
             <Typography
               color={palette.light.bg}
-              sx={{ fontSize: { xs: 40, sm: 70 }, fontWeight: 600 }}
+              sx={{
+                fontSize: { xs: 40, sm: 70 },
+                fontWeight: 600,
+                mb: { xs: "50px", sm: 0 },
+              }}
             >
               Explorez ma forge numérique polyvalente.
             </Typography>
             <Stack
-              direction="row" 
+              direction="row"
               mt="20"
               spacing={2}
               sx={{ alignItems: "center", justifyContent: "center" }}

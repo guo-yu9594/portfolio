@@ -34,7 +34,8 @@ const contactBoxStyle: SxProps = {
 const titleBoxStyle: SxProps = {
   width: { lg: "60%", xs: "100%" },
   display: "flex",
-  p: 8,
+  px: {xs: 4, sm: 8},
+  py: {xs: 5, sm: 8},
   alignItems: "center",
   justifyContent: "center",
 };

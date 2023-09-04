@@ -54,6 +54,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html lang="fr">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Portfolio d'un freelance Software Engineer junior. Découvrez mes projets et compétences en développement logiciel."
+        />
+        <meta name="author" content="Guo YU" />
+        <title>Guo YU - Software Engineer Portfolio</title>
+      </head>
       <body>
         <ThemeRegistry>
           <ThemeProvider theme={theme}>
@@ -71,7 +80,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     onClick={handleDrawerToggle}
                     sx={{ mr: 2, display: { sm: "none" } }}
                   >
-                    <MenuIcon sx={{ color: 'white' }} />
+                    <MenuIcon sx={{ color: "white" }} />
                   </IconButton>
                   <Stack
                     direction="row"
@@ -105,10 +114,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   {drawer}
                 </Drawer>
               </nav>
-              <Box
-                component="main"
-                sx={{ backgroundColor: palette.light.bg }}
-              >
+              <Box component="main" sx={{ backgroundColor: palette.light.bg }}>
                 <Toolbar />
                 {children}
               </Box>

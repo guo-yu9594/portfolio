@@ -12,7 +12,7 @@ export const palette = {
 };
 
 export const style = {
-  borderRadius: { xs: 15, sm: 25 },
+  borderRadius: { xs: 13, sm: 25 },
 };
 
 const theme = createTheme({

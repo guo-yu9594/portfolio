@@ -43,6 +43,7 @@ export default function HomeStep1(): JSX.Element {
             fontWeight: 800,
             fontSize: {xs: "4rem", sm: "5rem"},
             textAlign: "center",
+            px: 3
           }}
         >
           GUO YU
@@ -55,6 +56,7 @@ export default function HomeStep1(): JSX.Element {
             fontWeight: 300,
             fontSize: {xs: "2rem", md: "3rem"},
             textAlign: "center",
+            px: 3
           }}
         >
           Freelance software engineer
