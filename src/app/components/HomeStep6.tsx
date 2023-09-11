@@ -42,7 +42,7 @@ const titleBoxStyle: SxProps = {
 
 const contactFormStyle: SxProps = {
   width: { lg: "40%", xs: "100%" },
-  p: 8,
+  p: {xs: 4, lg: 8},
   alignItems: "center",
   bgcolor: palette.light.primary,
   borderRadius: style.borderRadius,
@@ -50,6 +50,7 @@ const contactFormStyle: SxProps = {
 
 const contactInfoStyle: SxProps = {
   width: "fit-content",
+  maxWidth: "95%",
   height: "fit-content",
   p: 2,
   borderRadius: style.borderRadius,
