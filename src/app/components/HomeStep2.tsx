@@ -142,7 +142,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
               >
                 <CategoryIcon color="primary" sx={{ width: 80, height: 80 }} />
                 <Typography sx={SkillBoxTextStyle}>
-                  Software Development
+                  Développement logiciel
                 </Typography>
               </Stack>
             </CardActionArea>
@@ -155,7 +155,7 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
                 sx={{ alignItems: { xs: "center", lg: "normal" } }}
               >
                 <WebIcon color="primary" sx={{ width: 80, height: 80 }} />
-                <Typography sx={SkillBoxTextStyle}>Web Development</Typography>
+                <Typography sx={SkillBoxTextStyle}>Développement web</Typography>
               </Stack>
             </CardActionArea>
           </Grow>

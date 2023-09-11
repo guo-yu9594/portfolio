@@ -63,7 +63,7 @@ const projects = [
     name: "Area",
     imgSrc: "https://github.com/guo-yu9594/area/raw/main/public/web.png",
     imgAlt: "area-picture",
-    description: "1+ month group project",
+    description: "Projet de groupe d'au moins 1 mois",
     link: "https://github.com/guo-yu9594/area",
   },
   {
@@ -71,7 +71,7 @@ const projects = [
     imgSrc:
       "https://github.com/guo-yu9594/particeep-interview/raw/master/public/app_screen.png",
     imgAlt: "interview-picture",
-    description: "2 days individual project challenge",
+    description: "Défi de projet individuel de 2 jours",
     link: "https://github.com/guo-yu9594/particeep-interview",
   },
   {
@@ -79,7 +79,7 @@ const projects = [
     imgSrc:
       "https://github.com/guo-yu9594/CAT_ADOPT_APP/raw/main/asset/cat-app.png",
     imgAlt: "cat-adopt-picture",
-    description: "1 day individual project challenge",
+    description: "Défi de projet individuel de 1 jour",
     link: "https://github.com/guo-yu9594/CAT_ADOPT_APP",
   },
 ];
