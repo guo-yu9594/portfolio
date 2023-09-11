@@ -108,8 +108,8 @@ export default function HomeStep5(): JSX.Element {
 
   useEffect(() => {
     const checkDisplayCond = () => {
-      if (isDisplay === false && window.scrollY >= 1048) setIsDisplay(true);
-      else if (isDisplay === true && window.scrollY < 1048) setIsDisplay(false);
+      if (isDisplay === false && window.scrollY >= 1500) setIsDisplay(true);
+      else if (isDisplay === true && window.scrollY < 1500) setIsDisplay(false);
     };
     checkDisplayCond();
     if (isDisplay === true) {

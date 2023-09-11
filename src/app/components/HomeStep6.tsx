@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Alert,
   Box,
   Button,
   Collapse,
@@ -13,6 +12,7 @@ import {
 } from "@mui/material";
 import { palette, style } from "@/app/theme";
 import { MouseEvent, useEffect, useState } from "react";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -34,15 +34,15 @@ const contactBoxStyle: SxProps = {
 const titleBoxStyle: SxProps = {
   width: { lg: "60%", xs: "100%" },
   display: "flex",
-  px: {xs: 4, sm: 8},
-  py: {xs: 5, sm: 8},
+  px: { xs: 4, sm: 8 },
+  py: { xs: 5, sm: 8 },
   alignItems: "center",
   justifyContent: "center",
 };
 
 const contactFormStyle: SxProps = {
   width: { lg: "40%", xs: "100%" },
-  p: {xs: 4, lg: 8},
+  p: { xs: 4, lg: 8 },
   alignItems: "center",
   bgcolor: palette.light.primary,
   borderRadius: style.borderRadius,
@@ -92,8 +92,8 @@ export default function HomeStep6(): JSX.Element {
 
   useEffect(() => {
     const checkDisplayCond = () => {
-      if (isDisplay === false && window.scrollY >= 1550) setIsDisplay(true);
-      else if (isDisplay === true && window.scrollY < 1550) setIsDisplay(false);
+      if (isDisplay === false && window.scrollY >= 2000) setIsDisplay(true);
+      else if (isDisplay === true && window.scrollY < 2000) setIsDisplay(false);
     };
     checkDisplayCond();
     window.addEventListener("scroll", checkDisplayCond);
@@ -106,13 +106,22 @@ export default function HomeStep6(): JSX.Element {
   return (
     <Box sx={mainBoxStyle}>
       <Collapse in={isDisplay} sx={{ width: "95%" }}>
-        <Stack sx={contactBoxStyle} direction={{ lg: "row", xs: "column-reverse" }}>
+        <Stack
+          sx={contactBoxStyle}
+          direction={{ lg: "row", xs: "column-reverse" }}
+        >
           <Stack sx={contactFormStyle} direction="column" spacing={3}>
             <Typography color={palette.light.bg} fontSize={55} fontWeight={800}>
               Contact
             </Typography>
             <Stack
-              direction={{ xs: "column", xl: "row" }}
+              direction={{
+                xs: "column",
+                sm: "row",
+                md: "row",
+                lg: "column",
+                xl: "row",
+              }}
               sx={{ alignItems: { xs: "center", lg: "start" } }}
               spacing={2}
             >
@@ -144,11 +153,16 @@ export default function HomeStep6(): JSX.Element {
               href={linkedin}
               target="_blank"
             >
-              {linkedin}
+              <LinkedInIcon sx={{ width: "40px", height: "40px", mr: 1 }} />
+              LinkedIn
             </Button>
           </Stack>
           <Box sx={titleBoxStyle}>
-            <Typography color="primary" fontWeight={800} fontSize={{ xs: 35, sm: 65}}>
+            <Typography
+              color="primary"
+              fontWeight={800}
+              fontSize={{ xs: 35, sm: 65 }}
+            >
               Donnez vie à vos idées avec des solutions numériques sur mesure !
             </Typography>
           </Box>

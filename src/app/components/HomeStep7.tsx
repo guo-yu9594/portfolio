@@ -1,13 +1,14 @@
 "use client";
 
-import { Box, Stack, SxProps } from "@mui/material";
+import { Box, Collapse, Fade, Grow, Stack, SxProps, Zoom } from "@mui/material";
 import { palette, style } from "@/app/theme";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
+import { IndeterminateCheckBoxOutlined } from "@mui/icons-material";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -120,52 +121,86 @@ const experiences: any[] = [
 ];
 
 const HomeStep7: React.FC = (): JSX.Element => {
+  const [isDisplay, setIsDisplay] = useState(false);
+  const [experiencesDisplay, setExperiencesDisplay] = useState(
+    new Array(experiences.length).fill(false)
+  );
+
+  useEffect(() => {
+    const checkDisplayCond = () => {
+      if (isDisplay === false && window.scrollY >= 1048) setIsDisplay(true);
+      else if (isDisplay === true && window.scrollY < 1048) setIsDisplay(false);
+    };
+    checkDisplayCond();
+    if (isDisplay === true) {
+      setTimeout(() => {
+        for (let i = 0; i < experiencesDisplay.length; i++) {
+          if (experiencesDisplay[i] === false) {
+            let tmp = [...experiencesDisplay];
+            tmp[i] = true;
+            setExperiencesDisplay(tmp);
+            return;
+          }
+        }
+      }, 120);
+    } else if (experiencesDisplay.includes(true))
+      setExperiencesDisplay(new Array(experiences.length).fill(false));
+    window.addEventListener("scroll", checkDisplayCond);
+  }, [isDisplay, experiencesDisplay]);
+
   return (
     <Box sx={mainBoxStyle}>
       <Box sx={bodyBoxStyle}>
         <Box sx={{ width: { xs: "95%", lg: "45%" } }}>
-          <Typography color="primary" sx={titleStyle}>
-            Deux Années d'Expériences Transformantes
-          </Typography>
+          <Collapse in={isDisplay}>
+            <Typography color="primary" sx={titleStyle}>
+              Deux Années d'Expériences Transformantes
+            </Typography>
+          </Collapse>
         </Box>
         <Stack sx={{ width: { xs: "95%", lg: "55%" } }}>
-          {experiences.map((experience) => {
+          {experiences.map((experience, index) => {
             return (
-              <Accordion sx={{ bgcolor: "transparent" }}>
-                <AccordionSummary
-                  sx={accordionSummaryStyle}
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography fontWeight={800} fontSize={{ xs: 22, lg: 30 }}>
-                    {experience.title + " @" + experience.company}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={accordionDetailsStyle}>
-                  <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-                    <Typography fontWeight={800} fontSize={20} sx={{ pb: 2 }}>
-                      {experience.period + " · " + experience.contract}
+              <Zoom in={experiencesDisplay[index]} key={index}>
+                <Accordion sx={{ bgcolor: "transparent" }}>
+                  <AccordionSummary
+                    sx={accordionSummaryStyle}
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography fontWeight={800} fontSize={{ xs: 22, lg: 30 }}>
+                      {experience.title + " @" + experience.company}
                     </Typography>
-                    <Typography fontSize={{ xs: 20, sm: 25 }} fontWeight={300}>
-                      {experience.description}
-                    </Typography>
-                  </Box>
-                  <Box sx={logoBoxStyle}>
-                    <a
-                      style={logoATagStyle}
-                      href={experience.link}
-                      target="_blank"
-                    >
-                      <img
-                        style={logoImgStyle}
-                        alt="epitech-logo"
-                        src={experience.logo}
-                      ></img>
-                    </a>
-                  </Box>
-                </AccordionDetails>
-              </Accordion>
+                  </AccordionSummary>
+                  <AccordionDetails sx={accordionDetailsStyle}>
+                    <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
+                      <Typography fontWeight={800} fontSize={20} sx={{ pb: 2 }}>
+                        {experience.period + " · " + experience.contract}
+                      </Typography>
+                      <Typography
+                        fontSize={{ xs: 20, sm: 25 }}
+                        fontWeight={300}
+                      >
+                        {experience.description}
+                      </Typography>
+                    </Box>
+                    <Box sx={logoBoxStyle}>
+                      <a
+                        style={logoATagStyle}
+                        href={experience.link}
+                        target="_blank"
+                      >
+                        <img
+                          style={logoImgStyle}
+                          alt="epitech-logo"
+                          src={experience.logo}
+                        ></img>
+                      </a>
+                    </Box>
+                  </AccordionDetails>
+                </Accordion>
+              </Zoom>
             );
           })}
         </Stack>
