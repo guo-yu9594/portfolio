@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
         GUO YU
       </Typography>
       <Divider />
@@ -77,13 +77,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 component="nav"
                 sx={{ bgcolor: "transparent", backdropFilter: "blur(10px)" }}
               >
-                <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
+                <Toolbar
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerToggle}
-                    sx={{ mr: 2, display: { sm: "none" } }}
+                    sx={{ display: { sm: "none" } }}
                   >
                     <MenuIcon sx={{ color: "white" }} />
                   </IconButton>
