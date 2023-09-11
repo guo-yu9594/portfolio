@@ -67,11 +67,11 @@ const breakpoints = [
   { minWidth: 0, nbIcons: 3 },
 ]; // based on Mui breakpoints
 
-interface HomeStep2Props {
+interface StepIntroProps {
   handleScroll?: () => void;
 }
 
-const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
+const StepIntro: React.FC<StepIntroProps> = ({ handleScroll }): JSX.Element => {
   const [nbIcons, setNbIcons] = useState(6);
   const arrowDropDownCircleIcons = generateArrowDropDownIcons(nbIcons, {
     width: 80,
@@ -165,4 +165,4 @@ const HomeStep2: React.FC<HomeStep2Props> = ({ handleScroll }): JSX.Element => {
   );
 };
 
-export default HomeStep2;
+export default StepIntro;

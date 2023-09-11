@@ -17,6 +17,15 @@ export const style = {
 
 const theme = createTheme({
   components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: "transparent",
+          backdropFilter: "blur(10px)",
+          color: "white",
+        }
+      }
+    },
     MuiCardActionArea: {
       styleOverrides: {
         root: ({ ownerState }) => ({

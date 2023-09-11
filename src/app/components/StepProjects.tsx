@@ -91,7 +91,7 @@ const arrowIconStyle: SxProps = {
   color: palette.light.primary
 };
 
-export default function HomeStep5(): JSX.Element {
+export default function StepProjects(): JSX.Element {
   const [isDisplay, setIsDisplay] = useState(false);
   const [projectsDisplay, setProjectsDisplay] = useState(
     new Array(projects.length).fill(false)

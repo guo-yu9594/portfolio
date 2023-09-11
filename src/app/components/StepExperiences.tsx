@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Collapse, Fade, Grow, Stack, SxProps, Zoom } from "@mui/material";
+import { Box, Collapse, Stack, SxProps, Zoom } from "@mui/material";
 import { palette, style } from "@/app/theme";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -8,7 +8,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { CSSProperties, useEffect, useState } from "react";
-import { IndeterminateCheckBoxOutlined } from "@mui/icons-material";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -120,7 +119,7 @@ const experiences: any[] = [
   },
 ];
 
-const HomeStep7: React.FC = (): JSX.Element => {
+const StepExperiences: React.FC = (): JSX.Element => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [experiencesDisplay, setExperiencesDisplay] = useState(
     new Array(experiences.length).fill(false)
@@ -209,4 +208,4 @@ const HomeStep7: React.FC = (): JSX.Element => {
   );
 };
 
-export default HomeStep7;
+export default StepExperiences;

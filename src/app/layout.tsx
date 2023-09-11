@@ -20,15 +20,17 @@ import {
   createTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
 import theme, { palette } from "@/app/theme";
+import HomePage from "./page";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Accueil", "Éducation", "Expériences", "Projets", "Contact"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const homeRef = useRef();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -37,13 +39,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        GUO YU
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={() => homeRef.current?.handleScroll(item)}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -88,8 +93,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     sx={{ display: { xs: "none", sm: "block" } }}
                   >
                     {navItems.map((item) => (
-                      <Button key={item} sx={{ color: "#fff" }}>
-                        {"//           " + item.toLowerCase()}
+                      <Button
+                        key={item}
+                        sx={{ color: "#fff" }}
+                        onClick={() => homeRef.current?.handleScroll(item)}
+                      >
+                        {"// " + item.toLowerCase()}
                       </Button>
                     ))}
                   </Stack>
@@ -116,7 +125,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </nav>
               <Box component="main" sx={{ backgroundColor: palette.light.bg }}>
                 <Toolbar />
-                {children}
+                <HomePage ref={homeRef} />
               </Box>
             </Box>
           </ThemeProvider>

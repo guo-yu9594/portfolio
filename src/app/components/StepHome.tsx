@@ -9,7 +9,7 @@ import {
 import { palette } from "@/app/theme";
 import { useEffect, useState } from "react";
 
-export default function HomeStep1(): JSX.Element {
+export default function StepHome(): JSX.Element {
   const [titleDisplay, setTitleDisplay] = useState(false);
   const [subtitleDisplay, setSubtitleDisplay] = useState(false);
 

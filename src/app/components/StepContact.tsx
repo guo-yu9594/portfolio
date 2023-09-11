@@ -73,7 +73,7 @@ const contactPopperStyle: SxProps = {
   fontWeight: 500,
 };
 
-export default function HomeStep6(): JSX.Element {
+export default function StepContact(): JSX.Element {
   const mail = "guo.yu@epitech.eu";
   const mobile = "+33 7 81 35 87 13";
   const linkedin = "https://www.linkedin.com/in/guo-yu-paris/";

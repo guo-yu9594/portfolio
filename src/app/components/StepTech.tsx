@@ -46,7 +46,7 @@ const breakpoints = [
   { minWidth: 0, nbSlides: 2 },
 ]; // based on Mui breakpoints
 
-const HomeStep3: React.FC = (): JSX.Element => {
+const StepTech: React.FC = (): JSX.Element => {
   const [slidesPerView, setSlidePerView] = useState(6);
 
   useEffect(() => {
@@ -91,4 +91,4 @@ const HomeStep3: React.FC = (): JSX.Element => {
   );
 };
 
-export default HomeStep3;
+export default StepTech;

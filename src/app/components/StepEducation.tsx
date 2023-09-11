@@ -50,7 +50,7 @@ const educationLogoBoxStyle: SxProps = {
   justifyContent: "center",
 };
 
-export default function HomeStep4(): JSX.Element {
+export default function StepEducation(): JSX.Element {
   const [isDisplay, setIsDisplay] = useState(false);
 
   useEffect(() => {
