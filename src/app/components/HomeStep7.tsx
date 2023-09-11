@@ -7,6 +7,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { CSSProperties } from "react";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",
@@ -22,6 +23,7 @@ const bodyBoxStyle: SxProps = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  flexDirection: { xs: "column", lg: "row" },
 };
 
 const accordionSummaryStyle: SxProps = {
@@ -39,14 +41,39 @@ const accordionDetailsStyle: SxProps = {
   height: "auto",
   bgcolor: palette.light.darkGrey,
   display: "flex",
-  flexDirection: "row",
+  flexDirection: { xs: "column-reverse", sm: "row" },
   justifyContent: "center",
   alignItems: "center",
   color: palette.light.primary,
   borderRadius: style.borderRadius.xs,
-  py: 7,
-  pl: 7,
-  paddingRight: 0,
+  py: { xs: 4, sm: 7 },
+  pl: { xs: 4, sm: 7 },
+  paddingRight: { xs: 4, sm: 0 },
+};
+
+const titleStyle: SxProps = {
+  fontSize: { xs: 40, md: 55, lg: 60, xl: 80 },
+  fontWeight: 900,
+  paddingBottom: { xs: "5vh", lg: 0 },
+  textAlign: { xs: "center", lg: "start" },
+};
+
+const logoBoxStyle: SxProps = {
+  width: { xs: "100%", sm: "40%" },
+  pb: { xs: 4, sm: 0 },
+};
+
+const logoATagStyle: CSSProperties = {
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const logoImgStyle: CSSProperties = {
+  objectFit: "contain",
+  width: "60%",
+  height: "auto",
 };
 
 const experiences: any[] = [
@@ -96,12 +123,12 @@ const HomeStep7: React.FC = (): JSX.Element => {
   return (
     <Box sx={mainBoxStyle}>
       <Box sx={bodyBoxStyle}>
-        <Box sx={{ width: "45%" }}>
-          <Typography color="primary" fontSize={80} fontWeight={900}>
-            Expériences professionnelles
+        <Box sx={{ width: { xs: "95%", lg: "45%" } }}>
+          <Typography color="primary" sx={titleStyle}>
+            Deux Années d'Expériences Transformantes
           </Typography>
         </Box>
-        <Stack sx={{ width: "55%" }}>
+        <Stack sx={{ width: { xs: "95%", lg: "55%" } }}>
           {experiences.map((experience) => {
             return (
               <Accordion sx={{ bgcolor: "transparent" }}>
@@ -111,12 +138,12 @@ const HomeStep7: React.FC = (): JSX.Element => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography fontWeight={800} fontSize={30}>
+                  <Typography fontWeight={800} fontSize={{ xs: 22, lg: 30 }}>
                     {experience.title + " @" + experience.company}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={accordionDetailsStyle}>
-                  <Box sx={{ width: "60%" }}>
+                  <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
                     <Typography fontWeight={800} fontSize={20} sx={{ pb: 2 }}>
                       {experience.period + " · " + experience.contract}
                     </Typography>
@@ -124,23 +151,14 @@ const HomeStep7: React.FC = (): JSX.Element => {
                       {experience.description}
                     </Typography>
                   </Box>
-                  <Box sx={{ width: "40%" }}>
+                  <Box sx={logoBoxStyle}>
                     <a
-                      style={{
-                        width: "100%",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
+                      style={logoATagStyle}
                       href={experience.link}
                       target="_blank"
                     >
                       <img
-                        style={{
-                          objectFit: "contain",
-                          width: "60%",
-                          height: "auto",
-                        }}
+                        style={logoImgStyle}
                         alt="epitech-logo"
                         src={experience.logo}
                       ></img>
