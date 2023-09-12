@@ -59,7 +59,7 @@ export default function StepHome(): JSX.Element {
             px: 3
           }}
         >
-          Freelance software engineer
+          Freelance Software Engineer
         </Typography>
       </Collapse>
       <LinearProgress
