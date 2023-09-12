@@ -5,7 +5,7 @@ import "swiper/css";
 import { Box, SxProps } from "@mui/material";
 import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper/modules";
 import React, { CSSProperties, useEffect, useState } from "react";
-import { palette } from "@/app/theme";
+import { palette } from "@/components/ThemeRegistry/theme";
 
 const mainBoxStyle: SxProps = {
   width: "100vw",

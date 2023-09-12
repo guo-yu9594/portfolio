@@ -8,7 +8,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette, style } from "@/app/theme";
+import { palette, style } from "@/components/ThemeRegistry/theme";
 import { CSSProperties, useEffect, useState } from "react";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
@@ -91,7 +91,7 @@ const arrowIconStyle: SxProps = {
   color: palette.light.primary
 };
 
-export default function StepProjects(): JSX.Element {
+const StepProjects: React.FC = (): JSX.Element => {
   const [isDisplay, setIsDisplay] = useState(false);
   const [projectsDisplay, setProjectsDisplay] = useState(
     new Array(projects.length).fill(false)
@@ -171,3 +171,5 @@ export default function StepProjects(): JSX.Element {
     </Box>
   );
 }
+
+export default StepProjects;

@@ -9,7 +9,7 @@ import StepExperiences from "./components/StepExperiences";
 import StepProjects from "./components/StepProjects";
 import StepContact from "./components/StepContact";
 import { Box, Toolbar } from "@mui/material";
-import { palette } from "./theme";
+import { palette } from "@/components/ThemeRegistry/theme";
 import NavBar from "./components/NavBar";
 
 const HomePage: React.FC = (): JSX.Element => {

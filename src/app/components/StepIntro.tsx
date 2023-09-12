@@ -4,7 +4,7 @@ import WebIcon from "@mui/icons-material/Web";
 import CategoryIcon from "@mui/icons-material/Category";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import { CSSProperties, MutableRefObject, useEffect, useState } from "react";
-import { palette, style } from "@/app/theme";
+import { palette, style } from "@/components/ThemeRegistry/theme";
 import {
   Box,
   CardActionArea,

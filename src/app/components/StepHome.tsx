@@ -6,10 +6,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { palette } from "@/app/theme";
+import { palette } from "@/components/ThemeRegistry/theme";
 import { useEffect, useState } from "react";
 
-export default function StepHome(): JSX.Element {
+const StepHome: React.FC = (): JSX.Element => {
   const [titleDisplay, setTitleDisplay] = useState(false);
   const [subtitleDisplay, setSubtitleDisplay] = useState(false);
 
@@ -73,3 +73,5 @@ export default function StepHome(): JSX.Element {
     </Stack>
   );
 }
+
+export default StepHome;

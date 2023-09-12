@@ -7,7 +7,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette, style } from "@/app/theme";
+import { palette, style } from "@/components/ThemeRegistry/theme";
 import { useEffect, useState } from "react";
 
 const mainBoxStyle: SxProps = {
@@ -50,7 +50,7 @@ const educationLogoBoxStyle: SxProps = {
   justifyContent: "center",
 };
 
-export default function StepEducation(): JSX.Element {
+const StepEducation: React.FC = (): JSX.Element => {
   const [isDisplay, setIsDisplay] = useState(false);
 
   useEffect(() => {
@@ -96,3 +96,5 @@ export default function StepEducation(): JSX.Element {
     </Box>
   );
 }
+
+export default StepEducation;

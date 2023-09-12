@@ -10,7 +10,7 @@ import {
   SxProps,
   Typography,
 } from "@mui/material";
-import { palette, style } from "@/app/theme";
+import { palette, style } from "@/components/ThemeRegistry/theme";
 import { MouseEvent, useEffect, useState } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -73,7 +73,7 @@ const contactPopperStyle: SxProps = {
   fontWeight: 500,
 };
 
-export default function StepContact(): JSX.Element {
+const StepContact: React.FC = (): JSX.Element => {
   const mail = "guo.yu@epitech.eu";
   const mobile = "+33 7 81 35 87 13";
   const linkedin = "https://www.linkedin.com/in/guo-yu-paris/";
@@ -171,3 +171,5 @@ export default function StepContact(): JSX.Element {
     </Box>
   );
 }
+
+export default StepContact;

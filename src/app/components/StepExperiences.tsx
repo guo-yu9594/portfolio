@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Collapse, Stack, SxProps, Zoom } from "@mui/material";
-import { palette, style } from "@/app/theme";
+import { palette, style } from "@/components/ThemeRegistry/theme";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
