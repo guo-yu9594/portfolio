@@ -3,6 +3,7 @@
 import Link from "next/link";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 import { ReactNode } from "react";
+import "@/app/global.css"
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
