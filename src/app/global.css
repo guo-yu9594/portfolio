@@ -1,5 +1,6 @@
 html {
   overflow-y: overlay;
+  background-color: #0f0f0d;
 }
 
 ::-webkit-scrollbar {
