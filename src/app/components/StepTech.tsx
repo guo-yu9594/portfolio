@@ -28,7 +28,7 @@ const slideStyle: CSSProperties = {
 
 const slideImgs = [
   "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-  "https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png",
+  "https://www.datocms-assets.com/98835/1684410508-image-7.png",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png",
   "https://i.pinimg.com/originals/6d/b1/59/6db159df526b6f5584902ebc21daca88.png",
@@ -36,6 +36,7 @@ const slideImgs = [
   "https://cdn.buttercms.com/2q5r816LTo2uE9j7Ntic",
   "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
+  "https://logodownload.org/wp-content/uploads/2022/12/figma-logo-0.png",
 ];
 
 const breakpoints = [
