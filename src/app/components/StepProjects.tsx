@@ -4,6 +4,8 @@ import {
   Box,
   CardActionArea,
   Grow,
+  ImageList,
+  ImageListItem,
   Stack,
   SxProps,
   Typography,
@@ -16,13 +18,12 @@ const mainBoxStyle: SxProps = {
   width: "100vw",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   mb: "5vh",
 };
 
 const projectBoxStyle: SxProps = {
   width: "100%",
-  height: { xs: "350px", sm: "470px" },
+  height: { xs: "350px", sm: "570px" },
   bgcolor: palette.light.darkGrey,
   borderRadius: style.borderRadius,
   display: "flex",
@@ -75,6 +76,14 @@ const projects = [
     link: "https://github.com/guo-yu9594/particeep-interview",
   },
   {
+    name: "Artx",
+    imgSrc:
+      "https://github.com/guo-yu9594/artx/blob/main/public/ARTX.png?raw=true",
+    imgAlt: "artx-picture",
+    description: "Défi de projet individuel de 6 jours",
+    link: "https://github.com/guo-yu9594/artx",
+  },
+  {
     name: "Adopte un chat",
     imgSrc:
       "https://github.com/guo-yu9594/CAT_ADOPT_APP/raw/main/asset/cat-app.png",
@@ -88,7 +97,7 @@ const arrowIconStyle: SxProps = {
   position: "absolute",
   bottom: 50,
   right: 50,
-  color: palette.light.primary
+  color: palette.light.primary,
 };
 
 const StepProjects: React.FC = (): JSX.Element => {
@@ -130,46 +139,60 @@ const StepProjects: React.FC = (): JSX.Element => {
 
   return (
     <Box sx={mainBoxStyle}>
-      <Stack
-        sx={{ width: "95%", height: "95%" }}
-        direction={{ lg: "row", xs: "column" }}
-        spacing={5}
+      <ImageList
+        sx={{
+          width: "95%",
+          columnCount: {
+            xs: "1 !important",
+            lg: "2 !important",
+          },
+        }}
+        variant="masonry"
+        gap={25}
       >
         {projects.map((project, index) => {
           return (
-            <Grow in={projectsDisplay[index]} key={project.name}>
-              <CardActionArea
-                sx={projectBoxStyle}
-                href={project.link}
-                target="_blank"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave()}
-              >
-                <Box sx={imageBoxStyle}>
-                  <img
-                    style={{
-                      ...imageStyle,
-                      transform:
-                        isHovered === index ? "scale(1.1)" : "scale(1)",
-                    }}
-                    src={project.imgSrc}
-                    alt={project.imgAlt}
-                  ></img>
-                </Box>
-                <Typography color={palette.light.primary} sx={projectNameStyle}>
-                  {"// " + project.name}
-                </Typography>
-                <Typography color={palette.light.primary} sx={projectDescStyle}>
-                  {project.description}
-                </Typography>
-                <ArrowOutwardIcon fontSize="large" sx={arrowIconStyle} />
-              </CardActionArea>
-            </Grow>
+            <ImageListItem key={project.name}>
+              <Grow in={projectsDisplay[index]} key={project.name}>
+                <CardActionArea
+                  sx={projectBoxStyle}
+                  href={project.link}
+                  target="_blank"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={() => handleMouseLeave()}
+                >
+                  <Box sx={imageBoxStyle}>
+                    <img
+                      style={{
+                        ...imageStyle,
+                        transform:
+                          isHovered === index ? "scale(1.1)" : "scale(1)",
+                      }}
+                      src={project.imgSrc}
+                      alt={project.imgAlt}
+                    ></img>
+                  </Box>
+                  <Typography
+                    color={palette.light.primary}
+                    sx={projectNameStyle}
+                  >
+                    {"// " + project.name}
+                  </Typography>
+                  <Typography
+                    color={palette.light.primary}
+                    sx={projectDescStyle}
+                  >
+                    {project.description}
+                  </Typography>
+                  <ArrowOutwardIcon fontSize="large" sx={arrowIconStyle} />
+                </CardActionArea>
+              </Grow>
+            </ImageListItem>
           );
         })}
-      </Stack>
+      </ImageList>
     </Box>
   );
-}
+};
 
 export default StepProjects;

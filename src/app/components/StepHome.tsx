@@ -59,7 +59,7 @@ const StepHome: React.FC = (): JSX.Element => {
             px: 3
           }}
         >
-          Freelance Software Engineer
+          Software Engineer
         </Typography>
       </Collapse>
       <LinearProgress

@@ -14,7 +14,6 @@ const mainBoxStyle: SxProps = {
   width: "100vw",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   mb: "5vh",
 };
 

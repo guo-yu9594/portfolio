@@ -19,8 +19,6 @@ const mainBoxStyle: SxProps = {
   minHeight: "50vh",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
-  mb: "5vh",
 };
 
 const contactBoxStyle: SxProps = {

@@ -12,7 +12,6 @@ import { CSSProperties, useEffect, useState } from "react";
 const mainBoxStyle: SxProps = {
   width: "100vw",
   display: "flex",
-  justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
   mb: "5vh",
