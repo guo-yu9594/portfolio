@@ -112,7 +112,7 @@ const experiences: any[] = [
     company: "Smice",
     link: "https://smice.com/",
     logo: "https://smice.com/wp-content/uploads/2023/04/logo_smice_V3.png.webp",
-    period: "04/2023 - 08/2023 · 5 mois",
+    period: "04/2023 - 08/2023 · 4 mois",
     description:
       "Impliquation dans la refonte de la plateforme web Smice en adoptant de nouvelles technologies pour intégrer les mises à jour de chaque page et fonctionnalité par rapport à la version précédente.",
   },
