@@ -1,4 +1,4 @@
-Deployed web app : https://portfolio-guo-yu.vercel.app
+Deployed web app : https://www.guoyu.space
 
 Install dependencies and run:
 
