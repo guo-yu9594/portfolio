@@ -61,6 +61,14 @@ const projectDescStyle: SxProps = {
 
 const projects = [
   {
+    name: "Gylv Quiz",
+    imgSrc:
+      "https://github.com/guo-yu9594/gylv-quiz/raw/main/public/GYLVQUIZ.png",
+    imgAlt: "gylv-quiz-picture",
+    description: "Projet d'entrainement pour le fun",
+    link: "https://github.com/guo-yu9594/gylv-quiz",
+  },
+  {
     name: "Area",
     imgSrc: "https://github.com/guo-yu9594/area/raw/main/public/web.png",
     imgAlt: "area-picture",
@@ -72,7 +80,7 @@ const projects = [
     imgSrc:
       "https://github.com/guo-yu9594/particeep-interview/raw/master/public/app_screen.png",
     imgAlt: "interview-picture",
-    description: "Défi de projet individuel de 2 jours",
+    description: "Défi de projet individuel en 12h",
     link: "https://github.com/guo-yu9594/particeep-interview",
   },
   {
@@ -80,7 +88,7 @@ const projects = [
     imgSrc:
       "https://github.com/guo-yu9594/artx/blob/main/public/ARTX.png?raw=true",
     imgAlt: "artx-picture",
-    description: "Défi de projet individuel de 6 jours",
+    description: "Défi de projet individuel en 6 jours",
     link: "https://github.com/guo-yu9594/artx",
   },
   {
@@ -88,7 +96,7 @@ const projects = [
     imgSrc:
       "https://github.com/guo-yu9594/CAT_ADOPT_APP/raw/main/asset/cat-app.png",
     imgAlt: "cat-adopt-picture",
-    description: "Défi de projet individuel de 1 jour",
+    description: "Défi de projet individuel en 1 jour",
     link: "https://github.com/guo-yu9594/CAT_ADOPT_APP",
   },
 ];
